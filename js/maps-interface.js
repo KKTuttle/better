@@ -26,31 +26,25 @@ $(document).ready(function() {
     // $('#longitude').val('');
 
     var myOptions = {
-      zoom : 14,
+      zoom : 10,
       center : {lat: lat, lng: lng},
+      rotateControl: true
+      scaleControl: true
+      fullscreenControl: true
       mapTypeId : google.maps.MapTypeId.HYBRID  //toggle between map and satellite
     };
     var mapObject = new google.maps.Map(document.getElementById("map"), myOptions);
   });
   $('#cityB').click(function() {
     var city = $('#city').val();
-      
 
-  })
+
+    // 'https://maps.googleapis.com/maps/api/geocode/outputFormat?parameters'
+    $.get('https://maps.googleapis.com/maps/api/geocode/json?address=' + city + '&key=' + apiKey).then(function(response) {
+          console.log(response);
+
+    }).fail(function(error) {
+          $('#map').text(error.responseJSON.message);
+    });
+  });
 });
-
-
-
-
-
-
-//     // $('#map')
-//
-//   });
-// });
-//
-//
-//   $('#cityB').click(function() {
-//
-//   })
-// });
