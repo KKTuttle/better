@@ -1,41 +1,38 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Simple Map</title>
-    <meta name="viewport" content="initial-scale=1.0">
-    <link rel="stylesheet" href="build/css/vendor.css">
-    <script src="build/js/vendor.min.js"></script>
-    <script type="text/javascript" src="build/js/app.js"></script>
-    <!-- <script src="http://maps.google.com/maps/api/js?"></script> -->
+<head>
+  <title>Simple Map</title>
+  <meta name="viewport" content="initial-scale=1.0">
+  <link rel="stylesheet" href="build/css/vendor.css">
+  <script src="build/js/vendor.min.js"></script>
+  <script type="text/javascript" src="build/js/app.js"></script>
+  <script src="http://maps.google.com/maps/api/js?"></script>
+  <meta charset="utf-8">
+  <style>
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  #map {
+    height: 50%;
+  }
+  </style>
+</head>
+<body>
 
-  </head>
-  <body>
-    <div class="container">
-      <label for="latitude">Enter latitude</label>
-      <input type="number" id ='latitude'>
-      <label for="longitude">Enter longitude</label>
-      <input type="number" id ='longitude'>
-      <button id="llB">Show me map</button>
-      <label for="city">Enter your city</label>
-      <input type="text" id ='city'>
-      <button id="cityB">Search city</button>
-    </div>
+  <div class="container">
+     <label for="latitude">Enter latitude</label>
+     <input type="number" id ='latitude'>
+     <label for="longitude">Enter longitude</label>
+     <input type="number" id ='longitude'>
+     <button id="llB">Show me map</button>
+     <label for="city">Enter your city</label>
+     <input type="text" id ='city'>
+     <button id="cityB">Search city</button>
+   </div>
 
-    <div id="map"></div>
 
-    <script>
-      function initMap() {
-        // Create a map object and specify the DOM element for display.
-        var map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -34.397, lng: 150.644},
-          scrollwheel: false,
-          zoom: 8
-        });
-      }
-
-    </script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClBKOq1eOYVpRV9aHkSEwKck9mxon9eso&callback=initMap"
-    async defer></script>
-
-  </body>
+  <div id="map"></div>
+</body>
 </html>

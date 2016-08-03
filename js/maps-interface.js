@@ -1,5 +1,5 @@
 var apiKey = require('./../.env').apiKey;
-var GoogleMap = require('./../js/maps.js').googleMapsModule;
+var GoogleMap = require('./../js/maps.js').googleMapModule;
 
 // our version
 // <div id="map"></div>
@@ -19,21 +19,24 @@ var GoogleMap = require('./../js/maps.js').googleMapsModule;
 
 $(document).ready(function() {
   $('#llB').click(function() {
-
     var lat = parseInt($('#latitude').val());
     var lng = parseInt($('#longitude').val());
-//
-//     var newMap = new GoogleMap(lat, lng);
-//
-//     var initMapWrapper = newMap.initMap();
-//
-    $('#latitude').val('');
-    $('#longitude').val('');
-//     newMap.initMap(lat, lng);
-//     $.get('https://maps.googleapis.com/maps/api/js?key=' + apiKey + '&callback=initMapWrapper', function(response) {
-//       console.log("the response is: " + response);
-//     });
+//sets lat and lng empty after click
+    // $('#latitude').val('');
+    // $('#longitude').val('');
+
+    var myOptions = {
+      zoom : 14,
+      center : {lat: lat, lng: lng},
+      mapTypeId : google.maps.MapTypeId.HYBRID  //toggle between map and satellite
+    };
+    var mapObject = new google.maps.Map(document.getElementById("map"), myOptions);
   });
+  $('#cityB').click(function() {
+    var city = $('#city').val();
+      
+
+  })
 });
 
 
@@ -48,6 +51,6 @@ $(document).ready(function() {
 //
 //
 //   $('#cityB').click(function() {
-//     var city = $('#city').val();
+//
 //   })
 // });
